@@ -1,0 +1,23 @@
+{
+  "plugins": [
+    [
+      "module-resolver",
+      {
+        "root": ["./"],
+        "alias": {
+          "@src": "./src",
+          "@animated": "./src/common/animated",
+          "@common": "./src/common",
+          "@component": "./src/components",
+          "@config": "./src/config",
+          "@redux": "./src/redux/slices",
+          "@screen": "./src/screens",
+          "@api": "./src/service/network/api",
+          "@theme": "./src/theme",
+          "@R": "./src/assets/R.ts",
+          "@util": "./src/utils"
+        }
+      }
+    ]
+  ]
+}
