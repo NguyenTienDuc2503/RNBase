@@ -230,7 +230,7 @@ const HomeScreenComponent = () => {
               <RefreshControl refreshing={false} onRefresh={getDataHome} />
             }
             renderItem={renderItem}
-            ListHeaderComponent={headerComponent}
+            // ListHeaderComponent={headerComponent}
           />
         }
       />
