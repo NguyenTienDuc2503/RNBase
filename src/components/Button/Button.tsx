@@ -49,9 +49,10 @@ export const DebounceButton = React.memo(
         //   Animated.timing(scale, UIHelper.btnScaleAnim.out).start()
         // }}
         children={
-          <Animated.View style={{transform: [{scale}]}}>
-            {props.children}
-          </Animated.View>
+          props.children
+          // <Animated.View style={{transform: [{scale}]}}>
+          //   {props.children}
+          // </Animated.View>
         }
       />
     );

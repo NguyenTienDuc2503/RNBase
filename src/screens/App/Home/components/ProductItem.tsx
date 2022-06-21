@@ -1,4 +1,3 @@
-import {Button} from '@src/components/Button/Button';
 import FstImage from '@src/components/FstImage/FstImage';
 import {SCREEN_ROUTER_APP_CUSTOMER} from '@src/constant/Constant';
 import theme, {colors} from '@src/constant/Theme';

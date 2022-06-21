@@ -7,7 +7,6 @@ import {
   CALL_API,
   HOME_OPTION,
   SCREEN_ROUTER_APP_CUSTOMER,
-  SCREEN_ROUTER_AUTH,
   TYPE_OPTIONS,
 } from '@src/constant/Constant';
 import {colors} from '@src/constant/Theme';
@@ -22,6 +21,7 @@ import {
   RefreshControl,
   StyleSheet,
   Text,
+  TouchableOpacity,
   View,
 } from 'react-native';
 import {getStatusBarHeight, isIphoneX} from 'react-native-iphone-x-helper';
@@ -48,17 +48,17 @@ const HomeScreenComponent = () => {
       setIsLoading(true);
       setError(false);
       const res = await getApiHome();
-
       if (res?.status === CALL_API.SUCCESS) {
         setDataHome(res?.data);
       }
       setError(false);
-      setIsLoading(false);
     } catch (e) {
       setError(true);
+    } finally {
       setIsLoading(false);
     }
   };
+
   const headerComponent = ({item, index}) => {
     const RenderHeader = () => {
       return (
@@ -103,6 +103,7 @@ const HomeScreenComponent = () => {
       );
     };
 
+    // eslint-disable-next-line @typescript-eslint/no-shadow
     const onPressOption = (item: any) => {
       switch (item?.id) {
         case TYPE_OPTIONS.EXCHANGE_POINT:
@@ -159,13 +160,12 @@ const HomeScreenComponent = () => {
             children={title || 'Chưa cập nhật'}
           />
           {onPress && (
-            <></>
-            // <Button
-            //   onPress={onPress}
-            //   children={
-            //     <Text style={styles.btn_see_more} children={'Xem thêm'} />
-            //   }
-            // />
+            <TouchableOpacity
+              onPress={onPress}
+              children={
+                <Text style={styles.btn_see_more} children={'Xem thêm'} />
+              }
+            />
           )}
         </View>
       );
@@ -211,12 +211,14 @@ const HomeScreenComponent = () => {
 
   if (isLoading) return <LoadingProgress />;
   if (error) return <Error reload={getDataHome} />;
+
   return (
     <>
       <ScreenWrapper
         backgroundHeader={colors.backgroundHeader}
         borderBottomHeader={colors.backgroundHeader}
         unsafe
+        style={{paddingTop: 50}}
         children={
           <FlatList
             showsVerticalScrollIndicator={false}
@@ -238,7 +240,7 @@ const HomeScreenComponent = () => {
 
 const HomeScreen = memo(HomeScreenComponent, isEqual);
 
-const mapStateToProps = (state: any) => ({});
+const mapStateToProps = () => ({});
 
 const mapDispatchToProps = {};
 
@@ -261,7 +263,7 @@ const styles = StyleSheet.create({
     marginTop: 8,
   },
   rank_name: {
-    backgroundColor: colors.orange,
+    backgroundColor: colors.blue,
     paddingVertical: 4,
     paddingHorizontal: 12,
     borderRadius: 16,

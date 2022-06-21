@@ -90,6 +90,18 @@ const SCREEN_ROUTER_APP_ADMIN = {
   PRODUCT_DETAIL: 'PRODUCT_DETAIL',
 };
 
+export type MintAssetResponse = {
+  transactionId: 23657;
+  starkKey: '0x11556cd66aab66f6064bc9d32885a5e1569969a8bd2a9d2eeb1b3cf69e1bae0';
+  vaultId: 19;
+  transactionType: 'MintRequest';
+  transactionStatus: 'Pending';
+  batchId: 2055;
+  createdAt: 1655793405905;
+  data: '{"txId":23657,"vaultId":19,"starkKey":"0x11556cd66aab66f6064bc9d32885a5e1569969a8bd2a9d2eeb1b3cf69e1bae0","tokenId":"0x400dd223946eed0d5b0c93fb1801244029730b46f38dd9e77770bf233cb433b","amount":"1"}';
+  quantizedAmount: '1';
+};
+
 export const REG_EMAIL =
   /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
 

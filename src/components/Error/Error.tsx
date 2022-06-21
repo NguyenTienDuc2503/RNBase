@@ -2,9 +2,14 @@
 import R from '@src/assets/R';
 import {colors} from '@src/constant/Theme';
 import React from 'react';
-import {Dimensions, StyleSheet, Text, View} from 'react-native';
+import {
+  Dimensions,
+  StyleSheet,
+  Text,
+  TouchableOpacity,
+  View,
+} from 'react-native';
 import FastImage from 'react-native-fast-image';
-import {DebounceButton} from '../Button/Button';
 import {Props} from './Error.props';
 const {width} = Dimensions.get('window');
 const Error = (props?: Props) => {
@@ -20,9 +25,9 @@ const Error = (props?: Props) => {
           'Kết nối với mạng hoặc máy chủ bị lỗi. Bạn vui lòng kiểm tra lại kết nối mạng và thử lại.'
         }
       </Text>
-      <DebounceButton style={styles.button} onPress={() => props?.reload()}>
+      <TouchableOpacity style={styles.button} onPress={() => props?.reload()}>
         <Text style={styles.textReload}>Thử lại</Text>
-      </DebounceButton>
+      </TouchableOpacity>
     </View>
   );
 };
